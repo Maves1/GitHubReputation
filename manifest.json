@@ -1,0 +1,24 @@
+{
+  "name": "GitHub Repo Checker",
+  "description": "Extension that protects you from using malware repositories",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*.github.com/*","https://*.github.com/*"],
+      "js": ["repo_checker.js"]
+    }
+  ],
+
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+        "https://githubrepochecker.herokuapp.com/*"
+  ]
+}
